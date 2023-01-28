@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - changeSet:
+      id: create refresh_token table
+      author: Ibrahim Nazarov
+      changes:
+        - createTable:
+            tableName: refresh_tokens
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: token
+                  type: varchar
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: valid
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date
+                  type: timestamp
+

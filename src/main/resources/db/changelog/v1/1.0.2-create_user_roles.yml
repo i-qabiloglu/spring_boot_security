@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: create user_roles table
+      author: Ibrahim Nazarov
+      changes:
+        - createTable:
+            tableName: user_roles
+            columns:
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_user_roles_to_user
+                    references: users(id)
+              - column:
+                  name: role_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_user_roles_to_role
+                    references: roles(id)
